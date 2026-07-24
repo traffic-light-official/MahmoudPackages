@@ -30,18 +30,25 @@ jobs:
           mkdir public
 
           for dir in drf-*; do
-            if [ -f "$dir/mkdocs.yml" ]; then
-              echo "Building $dir"
-
-              cd "$dir"
-
-              mkdocs build
-
-              cd ..
-
-              mkdir -p "public/$dir"
-              cp -R "$dir/site/." "public/$dir/"
+            if [ ! -f "$dir/mkdocs.yml" ]; then
+                echo "Skipping $dir (no mkdocs.yml)"
+                continue
             fi
+        
+            if [ ! -d "$dir/docs" ]; then
+                echo "Skipping $dir (no docs directory)"
+                continue
+            fi
+        
+            echo "Building $dir"
+        
+            (
+                cd "$dir"
+                mkdocs build
+            )
+        
+            mkdir -p "public/$dir"
+            cp -R "$dir/site/." "public/$dir/"
           done
 
       - uses: actions/upload-pages-artifact@v3
