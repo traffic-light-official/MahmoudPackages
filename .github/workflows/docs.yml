@@ -21,9 +21,61 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Generate landing page
+        run: |
+          mkdir -p public
 
-      - run: |
-          pip install mkdocs mkdocs-material
+          cat > public/index.html <<EOF
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <title>Mahmoud Packages</title>
+            <style>
+              body {
+                max-width: 900px;
+                margin: 40px auto;
+                font-family: Arial, sans-serif;
+              }
+
+              h1 {
+                color:#0969da;
+              }
+
+              ul {
+                list-style:none;
+                padding:0;
+              }
+
+              li {
+                margin:12px 0;
+              }
+
+              a {
+                text-decoration:none;
+                font-size:20px;
+              }
+            </style>
+          </head>
+          <body>
+
+          <h1>Mahmoud DRF Packages</h1>
+
+          <ul>
+          EOF
+
+          for dir in drf-*; do
+            if [ -f "$dir/mkdocs.yml" ]; then
+              echo "<li><a href=\"$dir/\">$dir</a></li>" >> public/index.html
+            fi
+          done
+
+          cat >> public/index.html <<EOF
+          </ul>
+
+          </body>
+          </html>
+          EOF
       - name: Install documentation dependencies
         run: |
           python -m pip install --upgrade pip
