@@ -1,0 +1,156 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "drf-llm-gateway"
+version = "1.0.0"
+description = "Expose Django REST Framework serializers and viewsets as OpenAI / MCP tools with automatic JSON Schema generation"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Mahmoud Shaker", email = "mahmoudgshaker2023@gmail.com" }]
+maintainers = [{ name = "Mahmoud Shaker", email = "mahmoudgshaker2023@gmail.com" }]
+requires-python = ">=3.10"
+keywords = [
+    "django",
+    "djangorestframework",
+    "drf",
+    "llm",
+    "openai",
+    "function-calling",
+    "mcp",
+    "model-context-protocol",
+    "json-schema",
+    "ai-tools",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Django :: 5.1",
+    "Framework :: Django :: 5.2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+dependencies = [
+    "django>=4.2,<5.3",
+    "djangorestframework>=3.14",
+]
+
+[project.optional-dependencies]
+dev = [
+    "drf-llm-gateway[test,docs]",
+    "ruff>=0.6.9",
+    "black>=24.10.0",
+    "mypy>=1.13.0",
+    "django-stubs[compatible-mypy]>=5.1.0",
+    "djangorestframework-stubs[compatible-mypy]>=3.15.0",
+    "types-jsonschema",
+    "pre-commit>=3.8.0",
+    "build>=1.2.0",
+    "twine>=5.1.0",
+    "tox>=4.21.0",
+    "tox-gh-actions>=3.2.0",
+]
+test = [
+    "pytest>=8.3.0",
+    "pytest-django>=4.9.0",
+    "pytest-cov>=5.0.0",
+    "pytest-benchmark>=4.0.0",
+    "hypothesis>=6.112.0",
+    "jsonschema>=4.23.0",
+]
+docs = [
+    "mkdocs>=1.6.0",
+    "mkdocs-material>=9.5.0",
+    "mkdocstrings[python]>=0.26.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/mahmoudgshaker/drf-llm-gateway"
+Documentation = "https://mahmoudgshaker.github.io/drf-llm-gateway/"
+Repository = "https://github.com/mahmoudgshaker/drf-llm-gateway"
+Issues = "https://github.com/mahmoudgshaker/drf-llm-gateway/issues"
+Changelog = "https://github.com/mahmoudgshaker/drf-llm-gateway/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/drf_llm_gateway"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/tests",
+    "/docs",
+    "/examples",
+    "/README.md",
+    "/CHANGELOG.md",
+    "/LICENSE",
+    "/AUTHORS.md",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "DTZ", "T20", "SIM", "RUF", "PL", "PTH"]
+ignore = ["PLR0913", "PLR2004"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["PLR2004", "T20", "S101", "RUF012", "PLC0415"]
+"examples/*" = ["RUF012"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["drf_llm_gateway"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312", "py313"]
+
+[tool.mypy]
+python_version = "3.10"
+plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
+strict = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+show_error_codes = true
+mypy_path = "src"
+exclude = ["^tests/test_app/migrations/"]
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+disallow_untyped_decorators = false
+
+[tool.django-stubs]
+django_settings_module = "tests.test_app.settings"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.test_app.settings"
+python_files = ["test_*.py"]
+addopts = "-ra --strict-markers --no-migrations"
+markers = ["benchmark: marks tests as query/perf benchmarks"]
+filterwarnings = ["error::DeprecationWarning", "ignore::DeprecationWarning:django.*"]
+
+[tool.coverage.run]
+source = ["drf_llm_gateway"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:", "raise NotImplementedError", "\\.\\.\\."]
+fail_under = 90
