@@ -1,6 +1,5 @@
 # drf-idempotency
 
-[![CI](https://github.com/mahmoudgshaker/drf-idempotency/actions/workflows/ci.yml/badge.svg)](https://github.com/mahmoudgshaker/drf-idempotency/actions/workflows/ci.yml)
 [![PyPI version](https://img.shields.io/pypi/v/drf-idempotency.svg)](https://pypi.org/project/drf-idempotency/)
 [![Python versions](https://img.shields.io/pypi/pyversions/drf-idempotency.svg)](https://pypi.org/project/drf-idempotency/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -77,28 +76,28 @@ That's it — every `POST`/`PUT`/`PATCH` request carrying an
 
 ## Documentation
 
-Full documentation: <https://mahmoudgshaker.github.io/drf-idempotency/>
+Full documentation: <https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/>
 
-- [Getting Started](docs/getting-started.md)
-- [Installation](docs/installation.md)
-- [Configuration](docs/configuration.md) / [Settings](docs/settings.md)
-- [Quick Start](docs/quickstart.md)
-- [Advanced Usage](docs/advanced-usage.md)
-- [Architecture](docs/architecture.md)
-- [API Reference](docs/api-reference.md)
-- [Examples](docs/examples.md)
-- [Common Patterns](docs/common-patterns.md)
-- [Performance](docs/performance.md)
-- [Security](docs/security.md)
-- [Testing](docs/testing.md)
-- [Deployment](docs/deployment.md)
-- [FAQ](docs/faq.md)
-- [Troubleshooting](docs/troubleshooting.md)
+- [Getting Started](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/getting-started/)
+- [Installation](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/installation/)
+- [Configuration](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/configuration) / [Settings](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/settings)
+- [Quick Start](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/quickstart)
+- [Advanced Usage](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/advanced-usage)
+- [Architecture](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/architecture)
+- [API Reference](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/api-reference)
+- [Examples](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/examples)
+- [Common Patterns](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/common-patterns)
+- [Performance](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/performance)
+- [Security](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/security)
+- [Testing](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/testing)
+- [Deployment](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/deployment)
+- [FAQ](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/faq)
+- [Troubleshooting](https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/troubleshooting)
 
 ## Contributing
 
-Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions are welcome — see [CONTRIBUTING.md](https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-idempotency/CONTRIBUTING.md).
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-idempotency/LICENSE).

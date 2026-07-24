@@ -1,6 +1,5 @@
 # drf-contract-test
 
-[![CI](https://github.com/mahmoudgshake/MahmoudPackages/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/mahmoudgshaker/drf-contract-test/actions/workflows/ci.yml)
 [![PyPI version](https://img.shields.io/pypi/v/drf-contract-test.svg)](https://pypi.org/project/drf-contract-test/)
 [![Python versions](https://img.shields.io/pypi/pyversions/drf-contract-test.svg)](https://pypi.org/project/drf-contract-test/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -76,28 +75,28 @@ drf-contract-test check openapi-baseline.yaml --settings myproject.settings --re
 
 ## Documentation
 
-Full documentation: <https://mahmoudgshaker.github.io/drf-contract-test/>
+Full documentation: <https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/>
 
-- [Getting Started](docs/getting-started.md)
-- [Installation](docs/installation.md)
-- [Configuration](docs/configuration.md) / [Settings](docs/settings.md)
-- [Quick Start](docs/quickstart.md)
-- [Advanced Usage](docs/advanced-usage.md)
-- [Architecture](docs/architecture.md)
-- [API Reference](docs/api-reference.md)
-- [Examples](docs/examples.md)
-- [Common Patterns](docs/common-patterns.md)
-- [Performance](docs/performance.md)
-- [Security](docs/security.md)
-- [Testing](docs/testing.md)
-- [Deployment](docs/deployment.md)
-- [FAQ](docs/faq.md)
-- [Troubleshooting](docs/troubleshooting.md)
+- [Getting Started](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/getting-started)
+- [Installation](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/installation)
+- [Configuration](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/configuration) / [Settings](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/settings)
+- [Quick Start](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/quickstart)
+- [Advanced Usage](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/advanced-usage)
+- [Architecture](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/architecture)
+- [API Reference](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/api-reference)
+- [Examples](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/examples)
+- [Common Patterns](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/common-patterns)
+- [Performance](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/performance)
+- [Security](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/security)
+- [Testing](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/testing)
+- [Deployment](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/deployment)
+- [FAQ](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/faq)
+- [Troubleshooting](https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/troubleshooting)
 
 ## Contributing
 
-Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions are welcome — see [CONTRIBUTING.md](https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-contract-test/CONTRIBUTING.md).
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-contract-test/LICENSE).

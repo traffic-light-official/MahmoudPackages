@@ -106,7 +106,7 @@ See [`docs/quickstart.md`](docs/quickstart.md) and
 ## Documentation
 
 Full documentation is available at
-<https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/>, including:
+[Documentation Home Page](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/), including:
 
 - [Getting Started](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/getting-started)
 - [Installation](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/installation)
@@ -130,4 +130,4 @@ Contributions are welcome — see [Contributing](https://mahmoudgshake.github.io
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-partial-response-fields/LICENSE).

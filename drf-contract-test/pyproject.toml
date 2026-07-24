@@ -9,8 +9,8 @@ description = "Contract testing and breaking-change detection for Django REST Fr
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
-authors = [{ name = "Mahmoud Shaker", email = "mahmoudgshaker2023@gmail.com" }]
-maintainers = [{ name = "Mahmoud Shaker", email = "mahmoudgshaker2023@gmail.com" }]
+authors = [{ name = "Mahmoud Gamal", email = "mahmoudgshaker2018@gmail.com" }]
+maintainers = [{ name = "Mahmoud Gamal", email = "mahmoudgshaker2018@gmail.com" }]
 requires-python = ">=3.10"
 keywords = [
     "django",
@@ -85,11 +85,11 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mahmoudgshaker/drf-contract-test"
-Documentation = "https://mahmoudgshaker.github.io/drf-contract-test/"
-Repository = "https://github.com/mahmoudgshaker/drf-contract-test"
-Issues = "https://github.com/mahmoudgshaker/drf-contract-test/issues"
-Changelog = "https://github.com/mahmoudgshaker/drf-contract-test/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-contract-test"
+Documentation = "https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/getting-started/"
+Repository = "https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-contract-test"
+Issues = "https://github.com/MahmoudGShake/MahmoudPackages/issues"
+Changelog = "https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-contract-test/CHANGELOG.md"
 
 [project.scripts]
 drf-contract-test = "drf_contract_test.cli:main"

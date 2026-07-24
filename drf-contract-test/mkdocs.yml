@@ -1,8 +1,8 @@
 site_name: drf-contract-test
 site_description: "Contract testing and breaking-change detection for Django REST Framework APIs from OpenAPI schemas"
-site_url: https://mahmoudgshaker.github.io/drf-contract-test/
-repo_url: https://github.com/mahmoudgshaker/drf-contract-test
-repo_name: mahmoudgshaker/drf-contract-test
+site_url: https://mahmoudgshake.github.io/MahmoudPackages/drf-contract-test/
+repo_url: https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-contract-test
+repo_name: drf-contract-test
 edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2026 Mahmoud Shaker
 

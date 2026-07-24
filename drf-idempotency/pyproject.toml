@@ -9,8 +9,8 @@ description = "Stripe-style idempotency keys for Django REST Framework with plug
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
-authors = [{ name = "Mahmoud Shaker", email = "mahmoudgshaker2023@gmail.com" }]
-maintainers = [{ name = "Mahmoud Shaker", email = "mahmoudgshaker2023@gmail.com" }]
+authors = [{ name = "Mahmoud Gamal", email = "mahmoudgshaker2018@gmail.com" }]
+maintainers = [{ name = "Mahmoud Gamal", email = "mahmoudgshaker2018@gmail.com" }]
 requires-python = ">=3.10"
 keywords = [
     "django",
@@ -80,11 +80,11 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mahmoudgshaker/drf-idempotency"
-Documentation = "https://mahmoudgshaker.github.io/drf-idempotency/"
-Repository = "https://github.com/mahmoudgshaker/drf-idempotency"
-Issues = "https://github.com/mahmoudgshaker/drf-idempotency/issues"
-Changelog = "https://github.com/mahmoudgshaker/drf-idempotency/blob/main/CHANGELOG.md"
+Homepage = "https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/"
+Documentation = "https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/getting-started/"
+Repository = "https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-idempotency"
+Issues = "https://github.com/MahmoudGShake/MahmoudPackages/issues"
+Changelog = "https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-idempotency/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/drf_idempotency"]

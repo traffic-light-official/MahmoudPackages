@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "drf-partial-response-fields"
-version = "1.0.4"
+version = "1.0.6"
 description = "GraphQL-like sparse fieldsets and automatic query optimization for Django REST Framework"
 readme = "README.md"
 license = "MIT"
@@ -83,7 +83,7 @@ docs = [
 
 [project.urls]
 Homepage = "https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/"
-Documentation = "https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/"
+Documentation = "https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/getting-started/"
 Repository = "https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-partial-response-fields"
 Issues = "https://github.com/MahmoudGShake/MahmoudPackages/issues"
 Changelog = "https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-partial-response-fields/CHANGELOG.md"

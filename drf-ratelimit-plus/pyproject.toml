@@ -9,8 +9,8 @@ description = "Advanced rate limiting for Django REST Framework: token bucket, s
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
-authors = [{ name = "Mahmoud Shaker", email = "mahmoudgshaker2023@gmail.com" }]
-maintainers = [{ name = "Mahmoud Shaker", email = "mahmoudgshaker2023@gmail.com" }]
+authors = [{ name = "Mahmoud Gamal", email = "mahmoudgshaker2018@gmail.com" }]
+maintainers = [{ name = "Mahmoud Gamal", email = "mahmoudgshaker2018@gmail.com" }]
 requires-python = ">=3.10"
 keywords = [
     "django",
@@ -82,11 +82,11 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mahmoudgshaker/drf-ratelimit-plus"
-Documentation = "https://mahmoudgshaker.github.io/drf-ratelimit-plus/"
-Repository = "https://github.com/mahmoudgshaker/drf-ratelimit-plus"
-Issues = "https://github.com/mahmoudgshaker/drf-ratelimit-plus/issues"
-Changelog = "https://github.com/mahmoudgshaker/drf-ratelimit-plus/blob/main/CHANGELOG.md"
+Homepage = "https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/"
+Documentation = "https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/getting-started/"
+Repository = "https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-ratelimit-plus"
+Issues = "https://github.com/MahmoudGShake/MahmoudPackages/issues"
+Changelog = "https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-ratelimit-plus/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/drf_ratelimit_plus"]

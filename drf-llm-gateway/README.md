@@ -1,6 +1,5 @@
 # drf-llm-gateway
 
-[![CI](https://github.com/mahmoudgshaker/drf-llm-gateway/actions/workflows/ci.yml/badge.svg)](https://github.com/mahmoudgshaker/drf-llm-gateway/actions/workflows/ci.yml)
 [![PyPI version](https://img.shields.io/pypi/v/drf-llm-gateway.svg)](https://pypi.org/project/drf-llm-gateway/)
 [![Python versions](https://img.shields.io/pypi/pyversions/drf-llm-gateway.svg)](https://pypi.org/project/drf-llm-gateway/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -73,28 +72,28 @@ including calling a tool end-to-end from a validated argument dict.
 
 ## Documentation
 
-Full documentation: <https://mahmoudgshaker.github.io/drf-llm-gateway/>
+Full documentation: <https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway>
 
-- [Getting Started](docs/getting-started.md)
-- [Installation](docs/installation.md)
-- [Configuration](docs/configuration.md) / [Settings](docs/settings.md)
-- [Quick Start](docs/quickstart.md)
-- [Advanced Usage](docs/advanced-usage.md)
-- [Architecture](docs/architecture.md)
-- [API Reference](docs/api-reference.md)
-- [Examples](docs/examples.md)
-- [Common Patterns](docs/common-patterns.md)
-- [Performance](docs/performance.md)
-- [Security](docs/security.md)
-- [Testing](docs/testing.md)
-- [Deployment](docs/deployment.md)
-- [FAQ](docs/faq.md)
-- [Troubleshooting](docs/troubleshooting.md)
+- [Getting Started](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/getting-started)
+- [Installation](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/installation)
+- [Configuration](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/configuration) / [Settings](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/settings)
+- [Quick Start](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/quickstart)
+- [Advanced Usage](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/advanced-usage)
+- [Architecture](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/architecture)
+- [API Reference](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/api-reference)
+- [Examples](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/examples)
+- [Common Patterns](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/common-patterns)
+- [Performance](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/performance)
+- [Security](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/security)
+- [Testing](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/testing)
+- [Deployment](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/deployment)
+- [FAQ](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/faq)
+- [Troubleshooting](https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/troubleshooting)
 
 ## Contributing
 
-Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions are welcome — see [CONTRIBUTING.md](https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-llm-gateway/CONTRIBUTING.md).
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-llm-gateway/LICENSE).

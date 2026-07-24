@@ -9,8 +9,8 @@ description = "Expose Django REST Framework serializers and viewsets as OpenAI /
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
-authors = [{ name = "Mahmoud Shaker", email = "mahmoudgshaker2023@gmail.com" }]
-maintainers = [{ name = "Mahmoud Shaker", email = "mahmoudgshaker2023@gmail.com" }]
+authors = [{ name = "Mahmoud Gamal", email = "mahmoudgshaker2018@gmail.com" }]
+maintainers = [{ name = "Mahmoud Gamal", email = "mahmoudgshaker2018@gmail.com" }]
 requires-python = ">=3.10"
 keywords = [
     "django",
@@ -80,11 +80,11 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mahmoudgshaker/drf-llm-gateway"
-Documentation = "https://mahmoudgshaker.github.io/drf-llm-gateway/"
-Repository = "https://github.com/mahmoudgshaker/drf-llm-gateway"
-Issues = "https://github.com/mahmoudgshaker/drf-llm-gateway/issues"
-Changelog = "https://github.com/mahmoudgshaker/drf-llm-gateway/blob/main/CHANGELOG.md"
+Homepage = "https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/"
+Documentation = "https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/getting-started/"
+Repository = "https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-llm-gateway"
+Issues = "https://github.com/MahmoudGShake/MahmoudPackages/issues"
+Changelog = "https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-llm-gateway/CONTRIBUTING.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/drf_llm_gateway"]

@@ -9,8 +9,8 @@ description = "Direct-to-S3 upload pipeline for Django REST Framework with resum
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
-authors = [{ name = "Mahmoud Shaker", email = "mahmoudgshaker2023@gmail.com" }]
-maintainers = [{ name = "Mahmoud Shaker", email = "mahmoudgshaker2023@gmail.com" }]
+authors = [{ name = "Mahmoud Gamal", email = "mahmoudgshaker2018@gmail.com" }]
+maintainers = [{ name = "Mahmoud Gamal", email = "mahmoudgshaker2018@gmail.com" }]
 requires-python = ">=3.10"
 keywords = [
     "django",
@@ -83,11 +83,11 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mahmoudgshaker/drf-file-pipeline"
-Documentation = "https://mahmoudgshaker.github.io/drf-file-pipeline/"
-Repository = "https://github.com/mahmoudgshaker/drf-file-pipeline"
-Issues = "https://github.com/mahmoudgshaker/drf-file-pipeline/issues"
-Changelog = "https://github.com/mahmoudgshaker/drf-file-pipeline/blob/main/CHANGELOG.md"
+Homepage = "https://mahmoudgshake.github.io/MahmoudPackages/drf-file-pipeline/"
+Documentation = "https://mahmoudgshake.github.io/MahmoudPackages/drf-file-pipeline/getting-started/"
+Repository = "https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-file-pipeline"
+Issues = "https://github.com/MahmoudGShake/MahmoudPackages/issues"
+Changelog = "https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-file-pipeline/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/drf_file_pipeline"]

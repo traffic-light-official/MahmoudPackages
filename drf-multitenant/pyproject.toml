@@ -9,8 +9,8 @@ description = "Shared-schema multi-tenancy for Django REST Framework with automa
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
-authors = [{ name = "Mahmoud Shaker", email = "mahmoudgshaker2023@gmail.com" }]
-maintainers = [{ name = "Mahmoud Shaker", email = "mahmoudgshaker2023@gmail.com" }]
+authors = [{ name = "Mahmoud Gamal", email = "mahmoudgshaker2018@gmail.com" }]
+maintainers = [{ name = "Mahmoud Gamal", email = "mahmoudgshaker2018@gmail.com" }]
 requires-python = ">=3.10"
 keywords = [
     "django",
@@ -75,11 +75,11 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mahmoudgshaker/drf-multitenant"
-Documentation = "https://mahmoudgshaker.github.io/drf-multitenant/"
-Repository = "https://github.com/mahmoudgshaker/drf-multitenant"
-Issues = "https://github.com/mahmoudgshaker/drf-multitenant/issues"
-Changelog = "https://github.com/mahmoudgshaker/drf-multitenant/blob/main/CHANGELOG.md"
+Homepage = "https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/"
+Documentation = "https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/getting-started/"
+Repository = "https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-multitenant"
+Issues = "https://github.com/mahmoudgshake/MahmoudPackages/issues"
+Changelog = "https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-multitenant/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/drf_multitenant"]

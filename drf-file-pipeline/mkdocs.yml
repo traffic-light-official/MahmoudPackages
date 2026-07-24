@@ -1,10 +1,10 @@
 site_name: drf-file-pipeline
 site_description: "Direct-to-S3 upload pipeline for Django REST Framework with resumable uploads, virus scanning, and image processing"
-site_url: https://mahmoudgshaker.github.io/drf-file-pipeline/
-repo_url: https://github.com/mahmoudgshaker/drf-file-pipeline
-repo_name: mahmoudgshaker/drf-file-pipeline
+site_url: https://mahmoudgshake.github.io/MahmoudPackages/drf-file-pipeline/
+repo_url: https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-file-pipeline
+repo_name: mahmoudgshake/drf-file-pipeline
 edit_uri: edit/main/docs/
-copyright: Copyright &copy; 2026 Mahmoud Shaker
+copyright: Copyright &copy; 2026 Mahmoud Gamal
 
 theme:
   name: material

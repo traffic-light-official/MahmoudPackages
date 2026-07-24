@@ -1,8 +1,8 @@
 site_name: drf-llm-gateway
 site_description: "Expose Django REST Framework serializers and viewsets as OpenAI / MCP tools with automatic JSON Schema generation"
-site_url: https://mahmoudgshaker.github.io/drf-llm-gateway/
-repo_url: https://github.com/mahmoudgshaker/drf-llm-gateway
-repo_name: mahmoudgshaker/drf-llm-gateway
+site_url: https://mahmoudgshake.github.io/MahmoudPackages/drf-llm-gateway/
+repo_url: https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-llm-gateway
+repo_name: mahmoudgshake/drf-llm-gateway
 edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2026 Mahmoud Shaker
 

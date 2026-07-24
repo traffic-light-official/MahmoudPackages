@@ -1,8 +1,8 @@
 site_name: drf-ratelimit-plus
 site_description: "Advanced rate limiting for Django REST Framework: token bucket, sliding window, tiers, and Redis Cluster support"
-site_url: https://mahmoudgshaker.github.io/drf-ratelimit-plus/
-repo_url: https://github.com/mahmoudgshaker/drf-ratelimit-plus
-repo_name: mahmoudgshaker/drf-ratelimit-plus
+site_url: https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/
+repo_url: https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-ratelimit-plus
+repo_name: mahmoudgshake/drf-ratelimit-plus
 edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2026 Mahmoud Shaker
 

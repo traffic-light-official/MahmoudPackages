@@ -1,6 +1,5 @@
 # drf-ratelimit-plus
 
-[![CI](https://github.com/mahmoudgshaker/drf-ratelimit-plus/actions/workflows/ci.yml/badge.svg)](https://github.com/mahmoudgshaker/drf-ratelimit-plus/actions/workflows/ci.yml)
 [![PyPI version](https://img.shields.io/pypi/v/drf-ratelimit-plus.svg)](https://pypi.org/project/drf-ratelimit-plus/)
 [![Python versions](https://img.shields.io/pypi/pyversions/drf-ratelimit-plus.svg)](https://pypi.org/project/drf-ratelimit-plus/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -86,28 +85,28 @@ def expensive_action(request):
 
 ## Documentation
 
-Full documentation: <https://mahmoudgshaker.github.io/drf-ratelimit-plus/>
+Full documentation: <https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/>
 
-- [Getting Started](docs/getting-started.md)
-- [Installation](docs/installation.md)
-- [Configuration](docs/configuration.md) / [Settings](docs/settings.md)
-- [Quick Start](docs/quickstart.md)
-- [Advanced Usage](docs/advanced-usage.md)
-- [Architecture](docs/architecture.md)
-- [API Reference](docs/api-reference.md)
-- [Examples](docs/examples.md)
-- [Common Patterns](docs/common-patterns.md)
-- [Performance](docs/performance.md)
-- [Security](docs/security.md)
-- [Testing](docs/testing.md)
-- [Deployment](docs/deployment.md)
-- [FAQ](docs/faq.md)
-- [Troubleshooting](docs/troubleshooting.md)
+- [Getting Started](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/getting-started)
+- [Installation](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/installation)
+- [Configuration](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/configuration) / [Settings](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/settings)
+- [Quick Start](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/quickstart)
+- [Advanced Usage](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/advanced-usage)
+- [Architecture](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/architecture)
+- [API Reference](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/api-reference)
+- [Examples](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/examples)
+- [Common Patterns](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/common-patterns)
+- [Performance](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/performance)
+- [Security](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/security)
+- [Testing](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/testing)
+- [Deployment](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/deployment)
+- [FAQ](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/faq)
+- [Troubleshooting](https://mahmoudgshake.github.io/MahmoudPackages/drf-ratelimit-plus/troubleshooting)
 
 ## Contributing
 
-Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions are welcome — see [CONTRIBUTING.md](https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-ratelimit-plus/CONTRIBUTING.md).
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-ratelimit-plus/LICENSE).

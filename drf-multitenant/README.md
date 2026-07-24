@@ -1,6 +1,5 @@
 # drf-multitenant
 
-[![CI](https://github.com/mahmoudgshaker/drf-multitenant/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mahmoudgshaker/drf-multitenant/actions/workflows/ci.yml)
 [![PyPI version](https://img.shields.io/pypi/v/drf-multitenant.svg)](https://pypi.org/project/drf-multitenant/)
 [![Python versions](https://img.shields.io/pypi/pyversions/drf-multitenant.svg)](https://pypi.org/project/drf-multitenant/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -100,28 +99,28 @@ class ArticleViewSet(viewsets.ModelViewSet):
 
 ## Documentation
 
-Full documentation: <https://mahmoudgshaker.github.io/drf-multitenant/>
+Full documentation: <https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/>
 
-- [Getting Started](docs/getting-started.md)
-- [Installation](docs/installation.md)
-- [Configuration](docs/configuration.md) / [Settings](docs/settings.md)
-- [Quick Start](docs/quickstart.md)
-- [Advanced Usage](docs/advanced-usage.md)
-- [Architecture](docs/architecture.md)
-- [API Reference](docs/api-reference.md)
-- [Examples](docs/examples.md)
-- [Common Patterns](docs/common-patterns.md)
-- [Performance](docs/performance.md)
-- [Security](docs/security.md)
-- [Testing](docs/testing.md)
-- [Deployment](docs/deployment.md)
-- [FAQ](docs/faq.md)
-- [Troubleshooting](docs/troubleshooting.md)
+- [Getting Started](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/getting-started)
+- [Installation](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/installation)
+- [Configuration](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/configuration) / [Settings](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/settings)
+- [Quick Start](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/quickstart)
+- [Advanced Usage](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/advanced-usage)
+- [Architecture](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/architecture)
+- [API Reference](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/api-reference)
+- [Examples](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/examples)
+- [Common Patterns](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/common-patterns)
+- [Performance](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/performance)
+- [Security](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/security)
+- [Testing](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/testing)
+- [Deployment](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/deployment)
+- [FAQ](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/faq)
+- [Troubleshooting](https://mahmoudgshake.github.io/MahmoudPackages/drf-multitenant/troubleshooting)
 
 ## Contributing
 
-Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions are welcome — see [CONTRIBUTING.md](https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-multitenant/CONTRIBUTING.md).
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-multitenant/LICENSE).

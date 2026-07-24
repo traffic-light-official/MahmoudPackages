@@ -1,8 +1,8 @@
 site_name: drf-idempotency
 site_description: "Stripe-style idempotency keys for Django REST Framework with pluggable Redis/database backends"
-site_url: https://mahmoudgshaker.github.io/drf-idempotency/
-repo_url: https://github.com/mahmoudgshaker/drf-idempotency
-repo_name: mahmoudgshaker/drf-idempotency
+site_url: https://mahmoudgshake.github.io/MahmoudPackages/drf-idempotency/
+repo_url: https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-idempotency
+repo_name: mahmoudgshake/drf-idempotency
 edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2026 Mahmoud Shaker
 

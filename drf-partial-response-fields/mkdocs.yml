@@ -1,10 +1,10 @@
 site_name: drf-partial-response-fields
 site_description: "GraphQL-like sparse fieldsets and automatic query optimization for Django REST Framework"
-site_url: https://mahmoudgshaker.github.io/drf-partial-response-fields/
-repo_url: https://github.com/mahmoudgshaker/drf-partial-response-fields
-repo_name: mahmoudgshaker/drf-partial-response-fields
+site_url: https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/
+repo_url: https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-partial-response-fields
+repo_name: mahmoudgshake/drf-partial-response-fields
 edit_uri: edit/main/docs/
-copyright: Copyright &copy; 2026 Mahmoud Shaker
+copyright: Copyright &copy; 2026 Mahmoud Gamal
 
 theme:
   name: material
