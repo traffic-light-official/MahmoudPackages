@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "drf-partial-response-fields"
-version = "1.0.1"
+version = "1.0.4"
 description = "GraphQL-like sparse fieldsets and automatic query optimization for Django REST Framework"
 readme = "README.md"
 license = "MIT"
@@ -82,11 +82,11 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mahmoudgshaker/drf-partial-response-fields"
-Documentation = "https://mahmoudgshaker.github.io/drf-partial-response-fields/"
-Repository = "https://github.com/mahmoudgshaker/drf-partial-response-fields"
-Issues = "https://github.com/mahmoudgshaker/drf-partial-response-fields/issues"
-Changelog = "https://github.com/mahmoudgshaker/drf-partial-response-fields/blob/main/CHANGELOG.md"
+Homepage = "https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/"
+Documentation = "https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/"
+Repository = "https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-partial-response-fields"
+Issues = "https://github.com/MahmoudGShake/MahmoudPackages/issues"
+Changelog = "https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-partial-response-fields/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/drf_partial_response_fields"]
@@ -146,6 +146,7 @@ django_settings_module = "tests.test_app.settings"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "tests.test_app.settings"
+testpaths = ["tests"]
 python_files = ["test_*.py"]
 addopts = "-ra --strict-markers --no-migrations"
 markers = [

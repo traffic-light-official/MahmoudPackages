@@ -1,6 +1,5 @@
 # drf-partial-response-fields
 
-[![CI](https://github.com/mahmoudgshake/MahmoudPackages/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/mahmoudgshake/MahmoudPackages/actions/workflows/ci.yml)
 [![PyPI version](https://img.shields.io/pypi/v/drf-partial-response-fields.svg)](https://pypi.org/project/drf-partial-response-fields/)
 [![Python versions](https://img.shields.io/pypi/pyversions/drf-partial-response-fields.svg)](https://pypi.org/project/drf-partial-response-fields/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -127,7 +126,7 @@ Full documentation is available at
 
 ## Contributing
 
-Contributions are welcome — see [https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/contributing](CONTRIBUTING.md).
+Contributions are welcome — see [Contributing](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/contributing).
 
 ## License
 
