@@ -11,6 +11,10 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,64 +25,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Generate landing page
-        run: |
-          mkdir -p public
 
-          cat > public/index.html <<EOF
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <meta charset="utf-8">
-            <title>Mahmoud Packages</title>
-            <style>
-              body {
-                max-width: 900px;
-                margin: 40px auto;
-                font-family: Arial, sans-serif;
-              }
-
-              h1 {
-                color:#0969da;
-              }
-
-              ul {
-                list-style:none;
-                padding:0;
-              }
-
-              li {
-                margin:12px 0;
-              }
-
-              a {
-                text-decoration:none;
-                font-size:20px;
-              }
-            </style>
-          </head>
-          <body>
-
-          <h1>Mahmoud DRF Packages</h1>
-
-          <ul>
-          EOF
-
-          for dir in drf-*; do
-            if [ -f "$dir/mkdocs.yml" ]; then
-              echo "<li><a href=\"$dir/\">$dir</a></li>" >> public/index.html
-            fi
-          done
-
-          cat >> public/index.html <<EOF
-          </ul>
-
-          </body>
-          </html>
-          EOF
       - name: Install documentation dependencies
         run: |
           python -m pip install --upgrade pip
+
           pip install \
             mkdocs \
             mkdocs-material \
@@ -86,32 +37,133 @@ jobs:
             mkdocs-gen-files \
             mkdocs-literate-nav \
             mkdocs-section-index \
-            pymdown-extensions
-      - name: Build all package docs
+            mkdocs-autorefs \
+            pymdown-extensions \
+            griffe
+
+      - name: Build documentation
+        shell: bash
         run: |
-          mkdir public
+          set -e
+
+          mkdir -p public
+
+          cat > public/index.html <<'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Mahmoud Packages</title>
+            <style>
+              body{
+                max-width:1000px;
+                margin:40px auto;
+                font-family:Arial,sans-serif;
+                line-height:1.6;
+                padding:0 20px;
+              }
+
+              h1{
+                color:#0969da;
+              }
+
+              .package{
+                border:1px solid #ddd;
+                border-radius:8px;
+                padding:16px;
+                margin:16px 0;
+              }
+
+              a{
+                color:#0969da;
+                text-decoration:none;
+                font-size:20px;
+                font-weight:bold;
+              }
+
+              small{
+                color:#666;
+              }
+            </style>
+          </head>
+          <body>
+
+          <h1>Mahmoud DRF Packages</h1>
+
+          <p>
+            Production-ready Django REST Framework packages.
+          </p>
+          EOF
+
+          built=0
+          failed=0
 
           for dir in drf-*; do
+
+            if [ ! -d "$dir" ]; then
+              continue
+            fi
+
             if [ ! -f "$dir/mkdocs.yml" ]; then
-                echo "Skipping $dir (no mkdocs.yml)"
-                continue
+              echo "Skipping $dir (no mkdocs.yml)"
+              continue
             fi
-        
+
             if [ ! -d "$dir/docs" ]; then
-                echo "Skipping $dir (no docs directory)"
-                continue
+              echo "Skipping $dir (no docs directory)"
+              continue
             fi
-        
+
+            echo ""
+            echo "======================================="
             echo "Building $dir"
-        
-            (
-                cd "$dir"
-                mkdocs build
-            )
-        
-            mkdir -p "public/$dir"
-            cp -R "$dir/site/." "public/$dir/"
+            echo "======================================="
+
+            if (
+              cd "$dir"
+              mkdocs build --strict
+            ); then
+
+              mkdir -p "public/$dir"
+
+              cp -R "$dir/site/." "public/$dir/"
+
+              cat >> public/index.html <<EOF
+              <div class="package">
+                <a href="$dir/">$dir</a><br>
+                <small>Documentation</small>
+              </div>
+          EOF
+
+              built=$((built+1))
+
+            else
+
+              echo "::warning::Failed to build documentation for $dir"
+
+              failed=$((failed+1))
+
+            fi
+
           done
+
+          cat >> public/index.html <<'EOF'
+
+          </body>
+          </html>
+          EOF
+
+          echo ""
+          echo "=========================="
+          echo "Built : $built"
+          echo "Failed: $failed"
+          echo "=========================="
+
+          if [ "$built" -eq 0 ]; then
+            echo "::error::No documentation was built."
+            exit 1
+          fi
 
       - uses: actions/upload-pages-artifact@v3
         with:
