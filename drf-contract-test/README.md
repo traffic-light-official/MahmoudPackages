@@ -1,6 +1,6 @@
 # drf-contract-test
 
-[![CI](https://github.com/mahmoudgshaker/drf-contract-test/actions/workflows/ci.yml/badge.svg)](https://github.com/mahmoudgshaker/drf-contract-test/actions/workflows/ci.yml)
+[![CI](https://github.com/mahmoudgshake/MahmoudPackages/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/mahmoudgshaker/drf-contract-test/actions/workflows/ci.yml)
 [![PyPI version](https://img.shields.io/pypi/v/drf-contract-test.svg)](https://pypi.org/project/drf-contract-test/)
 [![Python versions](https://img.shields.io/pypi/pyversions/drf-contract-test.svg)](https://pypi.org/project/drf-contract-test/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
