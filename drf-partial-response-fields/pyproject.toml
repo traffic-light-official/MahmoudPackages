@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "drf-partial-response-fields"
-version = "1.0.0"
+version = "1.0.1"
 description = "GraphQL-like sparse fieldsets and automatic query optimization for Django REST Framework"
 readme = "README.md"
 license = "MIT"

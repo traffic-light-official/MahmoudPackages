@@ -109,25 +109,25 @@ See [`docs/quickstart.md`](docs/quickstart.md) and
 Full documentation is available at
 <https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/>, including:
 
-- [Getting Started](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/getting-started.md)
-- [Installation](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/installation.md)
-- [Configuration](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/configuration.md) / [Settings](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/settings.md)
-- [Quick Start](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/quickstart.md)
-- [Advanced Usage](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/advanced-usage.md)
-- [Architecture](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/architecture.md)
-- [API Reference](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/api-reference.md)
-- [Examples](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/examples.md)
-- [Common Patterns](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/common-patterns.md)
-- [Performance](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/performance.md)
-- [Security](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/security.md)
-- [Testing](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/testing.md)
-- [Deployment](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/deployment.md)
-- [FAQ](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/faq.md)
-- [Troubleshooting](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/troubleshooting.md)
+- [Getting Started](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/getting-started)
+- [Installation](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/installation)
+- [Configuration](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/configuration) / [Settings](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/settings)
+- [Quick Start](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/quickstart)
+- [Advanced Usage](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/advanced-usage)
+- [Architecture](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/architecture)
+- [API Reference](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/api-reference)
+- [Examples](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/examples)
+- [Common Patterns](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/common-patterns)
+- [Performance](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/performance)
+- [Security](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/security)
+- [Testing](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/testing)
+- [Deployment](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/deployment)
+- [FAQ](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/faq)
+- [Troubleshooting](https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/troubleshooting)
 
 ## Contributing
 
-Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions are welcome — see [https://mahmoudgshake.github.io/MahmoudPackages/drf-partial-response-fields/contributing](CONTRIBUTING.md).
 
 ## License
 
