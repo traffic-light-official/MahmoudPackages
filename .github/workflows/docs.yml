@@ -1,0 +1,62 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: |
+          pip install mkdocs mkdocs-material
+
+      - name: Build all package docs
+        run: |
+          mkdir public
+
+          for dir in drf-*; do
+            if [ -f "$dir/mkdocs.yml" ]; then
+              echo "Building $dir"
+
+              cd "$dir"
+
+              mkdocs build
+
+              cd ..
+
+              mkdir -p "public/$dir"
+              cp -R "$dir/site/." "public/$dir/"
+            fi
+          done
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
