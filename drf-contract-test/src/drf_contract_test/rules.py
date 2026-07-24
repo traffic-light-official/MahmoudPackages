@@ -40,7 +40,7 @@ class Direction(str, Enum):
     RESPONSE = "response"
 
 
-def compare_schema_objects(  # noqa: PLR0913
+def compare_schema_objects(
     old: dict[str, Any] | None,
     new: dict[str, Any] | None,
     *,
@@ -81,8 +81,12 @@ def compare_schema_objects(  # noqa: PLR0913
 
     changes: list[Change] = []
     _compare_type(old, new, operation=operation, location=location, changes=changes)
-    _compare_nullable(old, new, direction=direction, operation=operation, location=location, changes=changes)
-    _compare_enum(old, new, direction=direction, operation=operation, location=location, changes=changes)
+    _compare_nullable(
+        old, new, direction=direction, operation=operation, location=location, changes=changes
+    )
+    _compare_enum(
+        old, new, direction=direction, operation=operation, location=location, changes=changes
+    )
     _compare_properties(
         old,
         new,
@@ -129,8 +133,8 @@ def _resolve(schema: dict[str, Any], root: dict[str, Any], *, depth: int = 0) ->
     if not ref.startswith("#/"):
         return schema  # external references are not supported
     node: Any = root
-    for part in ref[2:].split("/"):
-        part = part.replace("~1", "/").replace("~0", "~")
+    for raw_part in ref[2:].split("/"):
+        part = raw_part.replace("~1", "/").replace("~0", "~")
         if not isinstance(node, dict) or part not in node:
             return schema  # broken reference: treat as opaque rather than fail
         node = node[part]
@@ -157,7 +161,12 @@ def _is_nullable(schema: dict[str, Any]) -> bool:
 
 
 def _compare_type(
-    old: dict[str, Any], new: dict[str, Any], *, operation: str, location: str, changes: list[Change]
+    old: dict[str, Any],
+    new: dict[str, Any],
+    *,
+    operation: str,
+    location: str,
+    changes: list[Change],
 ) -> None:
     old_type = _base_type(old)
     new_type = _base_type(new)
@@ -252,7 +261,7 @@ def _compare_enum(
                     operation,
                     location,
                     "enum_value_added",
-                    f"{location}: response may now include previously-undocumented value(s) {added}",
+                    f"{location}: response may now include undocumented value(s) {added}",
                 )
             )
         if removed:
@@ -267,7 +276,7 @@ def _compare_enum(
             )
 
 
-def _compare_properties(  # noqa: PLR0913
+def _compare_properties(
     old: dict[str, Any],
     new: dict[str, Any],
     *,
@@ -289,10 +298,24 @@ def _compare_properties(  # noqa: PLR0913
     for name in sorted(set(old_props) - set(new_props)):
         field_loc = f"{location}.properties.{name}"
         if direction is Direction.REQUEST:
-            changes.append(Change(Severity.SAFE, operation, field_loc, "field_removed", f"{field_loc}: request field removed"))
+            changes.append(
+                Change(
+                    Severity.SAFE,
+                    operation,
+                    field_loc,
+                    "field_removed",
+                    f"{field_loc}: request field removed",
+                )
+            )
         else:
             changes.append(
-                Change(Severity.BREAKING, operation, field_loc, "field_removed", f"{field_loc}: response field removed")
+                Change(
+                    Severity.BREAKING,
+                    operation,
+                    field_loc,
+                    "field_removed",
+                    f"{field_loc}: response field removed",
+                )
             )
 
     for name in sorted(set(new_props) - set(old_props)):
@@ -311,11 +334,23 @@ def _compare_properties(  # noqa: PLR0913
             else:
                 changes.append(
                     Change(
-                        Severity.SAFE, operation, field_loc, "field_added_optional", f"{field_loc}: new optional request field"
+                        Severity.SAFE,
+                        operation,
+                        field_loc,
+                        "field_added_optional",
+                        f"{field_loc}: new optional request field",
                     )
                 )
         else:
-            changes.append(Change(Severity.SAFE, operation, field_loc, "field_added", f"{field_loc}: new response field"))
+            changes.append(
+                Change(
+                    Severity.SAFE,
+                    operation,
+                    field_loc,
+                    "field_added",
+                    f"{field_loc}: new response field",
+                )
+            )
 
     for name in sorted(set(old_props) & set(new_props)):
         field_loc = f"{location}.properties.{name}"
@@ -372,7 +407,7 @@ def _compare_required(
     )
 
 
-def _compare_items(  # noqa: PLR0913
+def _compare_items(
     old: dict[str, Any],
     new: dict[str, Any],
     *,

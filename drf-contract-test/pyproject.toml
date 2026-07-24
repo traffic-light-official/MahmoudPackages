@@ -115,7 +115,8 @@ ignore = ["PLR0913", "PLR2004", "PLW0603"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["PLR2004", "T20", "S101", "RUF012", "PLC0415"]
-"examples/*" = ["RUF012"]
+"examples/*" = ["RUF012", "T20"]
+"src/drf_contract_test/cli.py" = ["T20"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["drf_contract_test"]
@@ -145,6 +146,7 @@ django_settings_module = "tests.test_app.settings"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "tests.test_app.settings"
+testpaths = ["tests"]
 python_files = ["test_*.py"]
 addopts = "-ra --strict-markers --no-migrations -p no:drf_contract_test"
 markers = ["benchmark: marks tests as query/perf benchmarks"]

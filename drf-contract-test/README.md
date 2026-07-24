@@ -13,17 +13,20 @@ breaking, but a newly-required response field is not; a removed response
 field is breaking, but a removed (optional) request field is not.
 
 ```bash
-drf-contract-test check --baseline openapi-baseline.yaml --settings myproject.settings
+drf-contract-test check openapi-baseline.yaml --settings myproject.settings
 ```
 
 ```
-BREAKING: POST /articles/ - request field 'category' is now required (was optional)
-BREAKING: GET /articles/{id}/ - response field 'internal_notes' was removed
-SAFE:     GET /articles/{id}/ - response field 'view_count' was added
+BREAKING GET /articles/{id}/ - responses.200.properties.internal_notes: response field removed
+SAFE     GET /articles/{id}/ - responses.200.properties.view_count: new response field
+BREAKING POST /articles/ - request.properties.category: is now required (was optional)
 
-2 breaking change(s) detected. API version was not bumped (still "1.4.0").
-Exit code: 1
+2 breaking change(s), 1 safe change(s).
+2 breaking change(s) detected but the API version was not bumped (still '1.4.0').
 ```
+
+The process exits non-zero whenever breaking changes are detected without a
+matching version bump (pass `--no-fail-on-breaking` to only report).
 
 ## Why
 
@@ -49,7 +52,9 @@ response) changed and in which direction — so you get a real signal:
 - **Pytest plugin** with fixtures and a schema-validation assertion
   helper.
 - **HTML and JSON reports**, suitable for CI artifacts or PR comments.
-- **GitHub Action-ready** — a documented composite action wraps the CLI.
+- **CI-ready** — a single CLI command returns the right exit code to gate
+  a workflow; see [Quick Start](https://mahmoudgshaker.github.io/drf-contract-test/quickstart/)
+  for a drop-in GitHub Actions step.
 - Fully typed, PEP 561 compatible, `mypy --strict` clean.
 
 ## Installation
@@ -62,10 +67,11 @@ pip install drf-contract-test
 
 ```bash
 # 1. Snapshot your current API as the baseline (commit this file):
-drf-contract-test snapshot --settings myproject.settings --output openapi-baseline.yaml
+drf-contract-test snapshot openapi-baseline.yaml --settings myproject.settings
 
-# 2. Later, in CI, check for breaking changes against that baseline:
-drf-contract-test check --baseline openapi-baseline.yaml --settings myproject.settings --fail-on-breaking
+# 2. Later, in CI, check for breaking changes against that baseline
+#    (fails the build automatically if breaking changes lack a version bump):
+drf-contract-test check openapi-baseline.yaml --settings myproject.settings --require-major-bump
 ```
 
 ## Documentation

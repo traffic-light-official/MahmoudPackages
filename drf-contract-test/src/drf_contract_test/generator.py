@@ -44,7 +44,9 @@ class ContractCase:
     response_schema: dict[str, Any] | None
 
 
-def generate_contract_cases(schema: Schema, *, statuses: Collection[str] | None = None) -> list[ContractCase]:
+def generate_contract_cases(
+    schema: Schema, *, statuses: Collection[str] | None = None
+) -> list[ContractCase]:
     """Build one :class:`ContractCase` per documented response.
 
     Args:
@@ -120,8 +122,8 @@ def _resolve_ref(ref: str, root: dict[str, Any]) -> dict[str, Any] | None:
     if not ref.startswith("#/"):
         return None
     node: Any = root
-    for part in ref[2:].split("/"):
-        part = part.replace("~1", "/").replace("~0", "~")
+    for raw_part in ref[2:].split("/"):
+        part = raw_part.replace("~1", "/").replace("~0", "~")
         if not isinstance(node, dict) or part not in node:
             return None
         node = node[part]
@@ -129,7 +131,11 @@ def _resolve_ref(ref: str, root: dict[str, Any]) -> dict[str, Any] | None:
 
 
 def _inline_refs(
-    schema: dict[str, Any], root: dict[str, Any], *, seen: frozenset[str] = frozenset(), depth: int = 0
+    schema: dict[str, Any],
+    root: dict[str, Any],
+    *,
+    seen: frozenset[str] = frozenset(),
+    depth: int = 0,
 ) -> dict[str, Any]:
     """Recursively replace every ``$ref`` with its resolved content.
 
@@ -166,14 +172,22 @@ def _inline_refs(
     for key, value in schema.items():
         if key == "properties" and isinstance(value, dict):
             result[key] = {
-                name: _inline_refs(prop, root, seen=seen, depth=depth + 1) if isinstance(prop, dict) else prop
+                name: (
+                    _inline_refs(prop, root, seen=seen, depth=depth + 1)
+                    if isinstance(prop, dict)
+                    else prop
+                )
                 for name, prop in value.items()
             }
         elif key == "items" and isinstance(value, dict):
             result[key] = _inline_refs(value, root, seen=seen, depth=depth + 1)
         elif key in ("allOf", "oneOf", "anyOf") and isinstance(value, list):
             result[key] = [
-                _inline_refs(item, root, seen=seen, depth=depth + 1) if isinstance(item, dict) else item
+                (
+                    _inline_refs(item, root, seen=seen, depth=depth + 1)
+                    if isinstance(item, dict)
+                    else item
+                )
                 for item in value
             ]
         else:

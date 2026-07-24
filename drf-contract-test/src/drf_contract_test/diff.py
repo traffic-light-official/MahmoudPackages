@@ -41,11 +41,15 @@ def compare_schemas(baseline: Schema, current: Schema) -> DiffResult:
 
     for method, path in sorted(set(baseline_ops) - set(current_ops)):
         label = f"{method} {path}"
-        changes.append(Change(Severity.BREAKING, label, "", "endpoint_removed", f"{label}: endpoint removed"))
+        changes.append(
+            Change(Severity.BREAKING, label, "", "endpoint_removed", f"{label}: endpoint removed")
+        )
 
     for method, path in sorted(set(current_ops) - set(baseline_ops)):
         label = f"{method} {path}"
-        changes.append(Change(Severity.SAFE, label, "", "endpoint_added", f"{label}: endpoint added"))
+        changes.append(
+            Change(Severity.SAFE, label, "", "endpoint_added", f"{label}: endpoint added")
+        )
 
     for method, path in sorted(set(baseline_ops) & set(current_ops)):
         label = f"{method} {path}"
@@ -63,26 +67,54 @@ def compare_schemas(baseline: Schema, current: Schema) -> DiffResult:
 
 
 def _compare_operation(
-    old_op: dict[str, Any], new_op: dict[str, Any], *, operation: str, baseline: Schema, current: Schema
+    old_op: dict[str, Any],
+    new_op: dict[str, Any],
+    *,
+    operation: str,
+    baseline: Schema,
+    current: Schema,
 ) -> list[Change]:
     changes: list[Change] = []
-    changes.extend(_compare_request(old_op, new_op, operation=operation, baseline=baseline, current=current))
-    changes.extend(_compare_responses(old_op, new_op, operation=operation, baseline=baseline, current=current))
+    changes.extend(
+        _compare_request(old_op, new_op, operation=operation, baseline=baseline, current=current)
+    )
+    changes.extend(
+        _compare_responses(old_op, new_op, operation=operation, baseline=baseline, current=current)
+    )
     return changes
 
 
 def _compare_request(
-    old_op: dict[str, Any], new_op: dict[str, Any], *, operation: str, baseline: Schema, current: Schema
+    old_op: dict[str, Any],
+    new_op: dict[str, Any],
+    *,
+    operation: str,
+    baseline: Schema,
+    current: Schema,
 ) -> list[Change]:
     old_request = _request_schema(old_op)
     new_request = _request_schema(new_op)
     if old_request is None and new_request is None:
         return []
     if old_request is None:
-        return [Change(Severity.SAFE, operation, "request", "request_body_added", f"{operation}: request body added")]
+        return [
+            Change(
+                Severity.SAFE,
+                operation,
+                "request",
+                "request_body_added",
+                f"{operation}: request body added",
+            )
+        ]
     if new_request is None:
         return [
-            Change(Severity.BREAKING, operation, "request", "request_body_removed", f"{operation}: request body removed")
+            Change(
+                Severity.BREAKING,
+                operation,
+                "request",
+                "request_body_removed",
+                f"{operation}: request body removed",
+            )
         ]
     return compare_schema_objects(
         old_request,
@@ -96,7 +128,12 @@ def _compare_request(
 
 
 def _compare_responses(
-    old_op: dict[str, Any], new_op: dict[str, Any], *, operation: str, baseline: Schema, current: Schema
+    old_op: dict[str, Any],
+    new_op: dict[str, Any],
+    *,
+    operation: str,
+    baseline: Schema,
+    current: Schema,
 ) -> list[Change]:
     changes: list[Change] = []
     old_responses = _response_schemas(old_op)

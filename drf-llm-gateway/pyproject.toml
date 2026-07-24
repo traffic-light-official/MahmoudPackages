@@ -142,6 +142,7 @@ django_settings_module = "tests.test_app.settings"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "tests.test_app.settings"
+testpaths = ["tests"]
 python_files = ["test_*.py"]
 addopts = "-ra --strict-markers --no-migrations"
 markers = ["benchmark: marks tests as query/perf benchmarks"]

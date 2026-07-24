@@ -15,6 +15,7 @@ from collections.abc import Iterator
 from pathlib import Path
 from typing import Any
 
+import django
 import yaml
 
 from drf_contract_test.exceptions import SchemaGenerationError, SchemaLoadError
@@ -95,10 +96,7 @@ def load_schema_file(path: str | Path) -> Schema:
         raise SchemaLoadError(f"Schema file not found: {file_path}")
     text = file_path.read_text(encoding="utf-8")
     try:
-        if file_path.suffix.lower() == ".json":
-            data = json.loads(text)
-        else:
-            data = yaml.safe_load(text)
+        data = json.loads(text) if file_path.suffix.lower() == ".json" else yaml.safe_load(text)
     except (json.JSONDecodeError, yaml.YAMLError) as exc:
         raise SchemaLoadError(f"Could not parse schema file {file_path}: {exc}") from exc
     if not isinstance(data, dict):
@@ -139,11 +137,9 @@ def generate_schema(*, settings_module: str | None = None, urlconf: str | None =
         The generated :class:`Schema`.
 
     Raises:
-        drf_contract_test.exceptions.SchemaGenerationError: If Django or
-            drf-spectacular aren't available/configured correctly.
+        drf_contract_test.exceptions.SchemaGenerationError: If Django
+            cannot be initialized (e.g. an invalid settings module).
     """
-    import django
-
     if settings_module:
         os.environ.setdefault("DJANGO_SETTINGS_MODULE", settings_module)
     if not django.apps.apps.ready:
@@ -152,13 +148,14 @@ def generate_schema(*, settings_module: str | None = None, urlconf: str | None =
         except Exception as exc:  # pragma: no cover - defensive, environment-dependent
             raise SchemaGenerationError(f"Could not initialize Django: {exc}") from exc
 
-    try:
-        from drf_spectacular.generators import SchemaGenerator
-    except ImportError as exc:  # pragma: no cover - drf-spectacular is a hard dependency
-        raise SchemaGenerationError(
-            "drf-spectacular is required to generate a live schema."
-        ) from exc
+    # Deferred deliberately: drf-spectacular's generator module reaches into
+    # the app registry and DRF settings on import, so it must not be
+    # imported until *after* django.setup() has run above.
+    from drf_spectacular.generators import SchemaGenerator  # noqa: PLC0415
 
-    generator = SchemaGenerator(urlconf=urlconf)
-    raw = generator.get_schema(request=None, public=True)
+    # drf-spectacular ships py.typed but leaves these two signatures
+    # unannotated (*args/**kwargs and bare params), so mypy still sees
+    # them as untyped calls even in a typed context.
+    generator = SchemaGenerator(urlconf=urlconf)  # type: ignore[no-untyped-call]
+    raw = generator.get_schema(request=None, public=True)  # type: ignore[no-untyped-call]
     return Schema(raw)

@@ -108,7 +108,7 @@ def check_version_bump(
 def _parse_major(version: str) -> int | None:
     if not version:
         return None
-    first_segment = version.split(".")[0].strip().lower()
+    first_segment = version.split(".", maxsplit=1)[0].strip().lower()
     if first_segment.startswith("v"):
         first_segment = first_segment[1:]
     return int(first_segment) if first_segment.isdigit() else None

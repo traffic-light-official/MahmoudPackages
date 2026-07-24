@@ -45,7 +45,7 @@ Every pull request must pass:
 
 - **ruff** - linting (`ruff check .`)
 - **black** - formatting (`black --check .`)
-- **mypy --strict** - static typing (`mypy src`)
+- **mypy --strict** - static typing (`mypy src tests`)
 - **pytest** - full test suite with coverage
 - **pre-commit** - all configured hooks (`pre-commit run --all-files`)
 

@@ -15,8 +15,7 @@ from jinja2 import Template
 from drf_contract_test.changes import Change, DiffResult
 from drf_contract_test.versioning import VersionCheckResult
 
-_HTML_TEMPLATE = Template(
-    """<!doctype html>
+_HTML_TEMPLATE = Template("""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -25,7 +24,8 @@ _HTML_TEMPLATE = Template(
   body { font-family: -apple-system, Segoe UI, sans-serif; margin: 2rem; color: #1a1a1a; }
   h1 { font-size: 1.4rem; }
   table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
-  th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid #ddd; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid #ddd; }
+  th, td { font-size: 0.9rem; }
   th { background: #f5f5f5; }
   .breaking { color: #b00020; font-weight: 600; }
   .safe { color: #146c2e; }
@@ -58,8 +58,7 @@ _HTML_TEMPLATE = Template(
 </table>
 </body>
 </html>
-"""
-)
+""")
 
 
 def render_text(diff: DiffResult, *, version_check: VersionCheckResult | None = None) -> str:
@@ -74,7 +73,9 @@ def render_text(diff: DiffResult, *, version_check: VersionCheckResult | None = 
     """
     lines: list[str] = []
     for change in diff.changes:
-        lines.append(f"{change.severity.value.upper():8s} {change.operation or '-'} - {change.message}")
+        lines.append(
+            f"{change.severity.value.upper():8s} {change.operation or '-'} - {change.message}"
+        )
     lines.append("")
     lines.append(
         f"{len(diff.breaking_changes)} breaking change(s), {len(diff.safe_changes)} safe change(s)."
