@@ -1,0 +1,72 @@
+site_name: drf-serializer-performance-profiler
+site_description: "Find slow fields in Django REST Framework serializers: per-field timing and per-field query counts, with zero change to serialized output"
+site_url: https://mahmoudgshake.github.io/MahmoudPackages/drf-serializer-performance-profiler/
+repo_url: https://github.com/MahmoudGShake/MahmoudPackages
+repo_name: MahmoudGShake/MahmoudPackages
+edit_uri: edit/master/drf-serializer-performance-profiler/docs/
+copyright: Copyright &copy; 2026 Mahmoud Gamal
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - content.tabs.link
+    - search.suggest
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Installation: installation.md
+  - Configuration: configuration.md
+  - Settings: settings.md
+  - Quick Start: quickstart.md
+  - Advanced Usage: advanced-usage.md
+  - Architecture: architecture.md
+  - API Reference: api-reference.md
+  - Examples: examples.md
+  - Common Patterns: common-patterns.md
+  - Performance: performance.md
+  - Security: security.md
+  - Testing: testing.md
+  - Deployment: deployment.md
+  - FAQ: faq.md
+  - Troubleshooting: troubleshooting.md
+  - Contributing: contributing.md
+  - Changelog: changelog.md

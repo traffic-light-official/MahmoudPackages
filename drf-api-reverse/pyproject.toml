@@ -107,7 +107,9 @@ include = [
     "/CHANGELOG.md",
     "/LICENSE",
     "/AUTHORS.md",
-    "/action.yml",
+    "/CONTRIBUTING.md",
+    "/CODE_OF_CONDUCT.md",
+    "/SECURITY.md",
 ]
 
 [tool.ruff]

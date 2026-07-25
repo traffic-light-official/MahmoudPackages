@@ -3,9 +3,9 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "drf-changelog-generator"
+name = "drf-serializer-performance-profiler"
 version = "1.0.0"
-description = "Generate changelogs by diffing OpenAPI schemas between Git tags: breaking-change detection, Markdown/HTML/Slack/GitHub release output, and a CLI"
+description = "Find slow fields in Django REST Framework serializers: per-field timing and per-field query counts, with zero change to serialized output"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
@@ -18,15 +18,12 @@ keywords = [
     "drf",
     "rest",
     "api",
-    "openapi",
-    "changelog",
-    "breaking-changes",
-    "ci",
-    "cli",
+    "performance",
+    "profiling",
+    "serializers",
 ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
-    "Environment :: Console",
     "Environment :: Web Environment",
     "Framework :: Django",
     "Framework :: Django :: 4.2",
@@ -43,26 +40,22 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3 :: Only",
     "Topic :: Internet :: WWW/HTTP",
-    "Topic :: Software Development :: Documentation",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Typing :: Typed",
 ]
 dependencies = [
     "django>=4.2,<5.3",
     "djangorestframework>=3.14",
-    "pyyaml>=6.0",
 ]
 
 [project.optional-dependencies]
-spectacular = ["drf-spectacular>=0.27"]
 dev = [
-    "drf-changelog-generator[test,spectacular,docs]",
+    "drf-serializer-performance-profiler[test,docs]",
     "ruff>=0.6.9",
     "black>=24.10.0",
     "mypy>=1.13.0",
     "django-stubs[compatible-mypy]>=5.1.0",
     "djangorestframework-stubs[compatible-mypy]>=3.15.0",
-    "types-PyYAML>=6.0",
     "pre-commit>=3.8.0",
     "build>=1.2.0",
     "twine>=5.1.0",
@@ -76,7 +69,6 @@ test = [
     "pytest-xdist>=3.6.0",
     "hypothesis>=6.112.0",
     "factory-boy>=3.3.0",
-    "drf-spectacular>=0.27",
 ]
 docs = [
     "mkdocs>=1.6.0",
@@ -85,17 +77,14 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://mahmoudgshake.github.io/MahmoudPackages/drf-changelog-generator/"
-Documentation = "https://mahmoudgshake.github.io/MahmoudPackages/drf-changelog-generator/getting-started/"
-Repository = "https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-changelog-generator"
+Homepage = "https://mahmoudgshake.github.io/MahmoudPackages/drf-serializer-performance-profiler/"
+Documentation = "https://mahmoudgshake.github.io/MahmoudPackages/drf-serializer-performance-profiler/getting-started/"
+Repository = "https://github.com/MahmoudGShake/MahmoudPackages/tree/master/drf-serializer-performance-profiler"
 Issues = "https://github.com/MahmoudGShake/MahmoudPackages/issues"
-Changelog = "https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-changelog-generator/CHANGELOG.md"
-
-[project.scripts]
-drf-changelog-generator = "drf_changelog_generator.cli:main"
+Changelog = "https://github.com/MahmoudGShake/MahmoudPackages/blob/master/drf-serializer-performance-profiler/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/drf_changelog_generator"]
+packages = ["src/drf_serializer_performance_profiler"]
 
 [tool.hatch.build.targets.sdist]
 include = [
@@ -110,7 +99,6 @@ include = [
     "/CONTRIBUTING.md",
     "/CODE_OF_CONDUCT.md",
     "/SECURITY.md",
-    "/action.yml",
 ]
 
 [tool.ruff]
@@ -122,15 +110,14 @@ src = ["src", "tests"]
 select = [
     "E", "F", "W", "I", "N", "UP", "B", "C4", "DTZ", "T20", "SIM", "RUF", "PL", "PTH",
 ]
-ignore = ["PLR0913", "PLR0917", "PLR2004"]
+ignore = ["PLR0913", "PLR0917", "PLR2004", "PLR0911"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["PLR2004", "T20", "S101", "RUF012", "PLC0415"]
 "examples/*" = ["RUF012", "PLC0415", "T201"]
-"src/drf_changelog_generator/cli.py" = ["T201"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["drf_changelog_generator"]
+known-first-party = ["drf_serializer_performance_profiler"]
 
 [tool.black]
 line-length = 100
@@ -169,7 +156,7 @@ filterwarnings = [
 ]
 
 [tool.coverage.run]
-source = ["drf_changelog_generator"]
+source = ["drf_serializer_performance_profiler"]
 branch = true
 
 [tool.coverage.report]

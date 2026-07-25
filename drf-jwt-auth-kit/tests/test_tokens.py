@@ -82,7 +82,17 @@ class TestDecodeToken:
 
     def test_rejects_tampered_signature(self) -> None:
         token = encode_access_token(user_id=1, device_id=uuid.uuid4())
-        tampered = token[:-1] + ("a" if token[-1] != "a" else "b")
+        header, payload, signature = token.split(".")
+        # Flip the *first* character of the signature segment, not the
+        # last: base64url's final character in a segment can encode as
+        # few as 2 meaningful bits, so some substitutions there decode
+        # to byte-identical signature bytes - making "tampered" the
+        # same as the original often enough to flake this test. The
+        # first character of a segment always encodes a full 6 bits, so
+        # any substitution there is guaranteed to change the decoded
+        # signature.
+        tampered_signature = ("a" if signature[0] != "a" else "b") + signature[1:]
+        tampered = f"{header}.{payload}.{tampered_signature}"
 
         with pytest.raises(InvalidTokenError):
             decode_token(tampered, expected_type="access")
