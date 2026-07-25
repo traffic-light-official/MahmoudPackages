@@ -1,0 +1,57 @@
+openapi: 3.0.3
+info:
+  title: Blog API
+  version: "1.0.0"
+components:
+  schemas:
+    ArticleCreate:
+      type: object
+      properties:
+        title:
+          type: string
+      required:
+        - title
+    ArticleCreated:
+      type: object
+      properties:
+        id:
+          type: integer
+    Article:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        legacy_id:
+          type: string
+      required:
+        - title
+paths:
+  /articles/:
+    post:
+      operationId: createArticle
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ArticleCreate"
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArticleCreated"
+  /articles/{id}/:
+    get:
+      operationId: retrieveArticle
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Article"
+    delete:
+      operationId: deleteArticle
+      responses:
+        "204": {}

@@ -1,0 +1,93 @@
+name: "DRF Changelog Generator"
+description: >-
+  Diff two OpenAPI schema versions and generate a changelog, failing the
+  workflow if breaking API changes are detected.
+author: "Mahmoud Shaker"
+branding:
+  icon: "file-text"
+  color: "blue"
+
+inputs:
+  old-ref:
+    description: "Git ref (tag, branch, or commit) for the earlier schema version."
+    required: true
+  new-ref:
+    description: "Git ref for the later schema version. Use HEAD for the current commit."
+    required: true
+    default: "HEAD"
+  schema-path:
+    description: "Path to the OpenAPI schema file, relative to the repository root."
+    required: true
+  format:
+    description: "Output format: markdown, html, slack, or github."
+    required: false
+    default: "github"
+  repo-slug:
+    description: "'owner/name', used to build the compare link in GitHub-formatted output."
+    required: false
+    default: ${{ github.repository }}
+  output-file:
+    description: "Path to write the rendered changelog to."
+    required: false
+    default: "api-changelog.md"
+  fail-on-breaking:
+    description: "Fail the workflow step if any breaking changes are detected."
+    required: false
+    default: "true"
+  slack-webhook-url:
+    description: "Slack incoming webhook URL. Only used when format is 'slack'."
+    required: false
+    default: ""
+
+outputs:
+  changelog-path:
+    description: "Path to the rendered changelog file."
+    value: ${{ steps.generate.outputs.changelog-path }}
+  has-breaking-changes:
+    description: "'true' if any breaking API changes were detected."
+    value: ${{ steps.generate.outputs.has-breaking-changes }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install drf-changelog-generator
+      shell: bash
+      run: pip install drf-changelog-generator
+
+    - name: Generate changelog
+      id: generate
+      shell: bash
+      env:
+        OLD_REF: ${{ inputs.old-ref }}
+        NEW_REF: ${{ inputs.new-ref }}
+        SCHEMA_PATH: ${{ inputs.schema-path }}
+        FORMAT: ${{ inputs.format }}
+        REPO_SLUG: ${{ inputs.repo-slug }}
+        OUTPUT_FILE: ${{ inputs.output-file }}
+        SLACK_WEBHOOK_URL: ${{ inputs.slack-webhook-url }}
+      run: |
+        set +e
+        ARGS=(diff --repo . --old-ref "$OLD_REF" --new-ref "$NEW_REF" \
+          --schema-path "$SCHEMA_PATH" --format "$FORMAT" \
+          --repo-slug "$REPO_SLUG" --output "$OUTPUT_FILE")
+        if [ -n "$SLACK_WEBHOOK_URL" ]; then
+          ARGS+=(--slack-webhook "$SLACK_WEBHOOK_URL")
+        fi
+        drf-changelog-generator "${ARGS[@]}"
+        status=$?
+        echo "changelog-path=$OUTPUT_FILE" >> "$GITHUB_OUTPUT"
+        if [ "$status" -eq 1 ]; then
+          echo "has-breaking-changes=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "has-breaking-changes=false" >> "$GITHUB_OUTPUT"
+        fi
+        if [ "$status" -eq 2 ]; then
+          exit 2
+        fi
+
+    - name: Fail on breaking changes
+      if: inputs.fail-on-breaking == 'true' && steps.generate.outputs.has-breaking-changes == 'true'
+      shell: bash
+      run: |
+        echo "::error::Breaking API changes detected between ${{ inputs.old-ref }} and ${{ inputs.new-ref }}."
+        exit 1
