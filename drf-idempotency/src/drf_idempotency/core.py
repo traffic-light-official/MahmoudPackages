@@ -193,7 +193,7 @@ def process_idempotent_request(
         backend.fail(key)
         raise
 
-    _finalize(response, backend=backend, key=key)
+    _finalize(request, response, backend=backend, key=key)
     response[header_name] = key
     response[get_setting("REPLAY_HEADER_NAME")] = "false"
     return response
