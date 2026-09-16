@@ -16,6 +16,7 @@ from typing import Any
 from django.http import HttpRequest, HttpResponse, JsonResponse, StreamingHttpResponse
 from django.test.signals import setting_changed
 from django.utils.module_loading import import_string
+from rest_framework.request import Request
 
 from drf_idempotency.backends.base import BaseBackend, StoredRecord
 from drf_idempotency.exceptions import (
@@ -198,7 +199,7 @@ def process_idempotent_request(
     return response
 
 
-def _finalize(response: HttpResponse, *, backend: BaseBackend, key: str) -> None:
+def _finalize(request: HttpRequest | Request, response: HttpResponse, *, backend: BaseBackend, key: str) -> None:
     if isinstance(response, StreamingHttpResponse):
         # Streaming responses can't be captured for replay; release the
         # lock so a retry executes the view again rather than being stuck.
@@ -207,6 +208,13 @@ def _finalize(response: HttpResponse, *, backend: BaseBackend, key: str) -> None
 
     render = getattr(response, "render", None)
     if callable(render) and not getattr(response, "is_rendered", True):
+        if isinstance(request, Request):
+            # DRF needs more preparation for render.
+            response.accepted_renderer = request.accepted_renderer
+            response.accepted_media_type = request.accepted_media_type
+            view = request.parser_context.get('view')
+            response.renderer_context = view.get_renderer_context() if view else {}
+
         render()
 
     should_cache = response.status_code < 500 and (
