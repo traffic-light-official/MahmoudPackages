@@ -192,13 +192,13 @@ def process_idempotent_request(
         backend.fail(key)
         raise
 
-    _finalize(response, backend=backend, key=key)
+    _finalize(request, response, backend=backend, key=key)
     response[header_name] = key
     response[get_setting("REPLAY_HEADER_NAME")] = "false"
     return response
 
 
-def _finalize(response: HttpResponse, *, backend: BaseBackend, key: str) -> None:
+def _finalize(request: HttpRequest, response: HttpResponse, *, backend: BaseBackend, key: str) -> None:
     if isinstance(response, StreamingHttpResponse):
         # Streaming responses can't be captured for replay; release the
         # lock so a retry executes the view again rather than being stuck.
@@ -207,6 +207,10 @@ def _finalize(response: HttpResponse, *, backend: BaseBackend, key: str) -> None
 
     render = getattr(response, "render", None)
     if callable(render) and not getattr(response, "is_rendered", True):
+        response.accepted_renderer = request.accepted_renderer
+        response.accepted_media_type = request.accepted_media_type
+        view: APIView | None = request.parser_context.get('view')
+        response.renderer_context = view.get_renderer_context() if view else {}
         render()
 
     should_cache = response.status_code < 500 and (
