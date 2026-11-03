@@ -14,11 +14,13 @@ from __future__ import annotations
 import hashlib
 from typing import TYPE_CHECKING
 
+from rest_framework.request import Request
+
 if TYPE_CHECKING:
     from django.http import HttpRequest
 
 
-def compute_fingerprint(request: HttpRequest) -> str:
+def compute_fingerprint(request: HttpRequest | Request) -> str:
     """Compute a stable fingerprint of a request's method, path, and body.
 
     Args:
@@ -34,5 +36,10 @@ def compute_fingerprint(request: HttpRequest) -> str:
     hasher.update(b"\n")
     hasher.update(request.path.encode("utf-8"))
     hasher.update(b"\n")
+    if isinstance(request, Request):
+        # Trying to avoid RawPostDataException by accessing request.body multiple times.
+        hasher.update(str(request.data).encode("utf-8"))
+    else:
+        hasher.update(request.body)
     hasher.update(request.body)
     return hasher.hexdigest()
