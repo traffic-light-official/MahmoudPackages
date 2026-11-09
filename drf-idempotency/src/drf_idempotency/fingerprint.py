@@ -41,5 +41,4 @@ def compute_fingerprint(request: HttpRequest | Request) -> str:
         hasher.update(str(request.data).encode("utf-8"))
     else:
         hasher.update(request.body)
-    hasher.update(request.body)
     return hasher.hexdigest()
